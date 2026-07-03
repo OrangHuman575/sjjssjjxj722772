@@ -1,0 +1,162 @@
+-- ranggi4561 destroys Roblox games Executor (Smaller Version)
+local player = game.Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "Ranggi4561Executor"
+screenGui.ResetOnSpawn = false
+screenGui.Parent = playerGui
+
+-- Smaller Main Frame
+local mainFrame = Instance.new("Frame")
+mainFrame.Name = "ExecutorFrame"
+mainFrame.Size = UDim2.new(0, 480, 0, 320)           -- Smaller
+mainFrame.Position = UDim2.new(0.5, -240, 0.5, -160)
+mainFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+mainFrame.BorderSizePixel = 0
+mainFrame.Active = true
+mainFrame.Draggable = true
+mainFrame.Visible = true
+mainFrame.Parent = screenGui
+
+-- Top Bar
+local topBar = Instance.new("Frame")
+topBar.Size = UDim2.new(1, 0, 0, 35)                 -- Slightly thinner
+topBar.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+topBar.BorderSizePixel = 0
+topBar.Parent = mainFrame
+
+local titleLabel = Instance.new("TextLabel")
+titleLabel.Size = UDim2.new(1, -120, 1, 0)
+titleLabel.Position = UDim2.new(0, 10, 0, 0)
+titleLabel.BackgroundTransparency = 1
+titleLabel.Text = "ranggi4561 destroys Roblox games"
+titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+titleLabel.TextScaled = true
+titleLabel.Font = Enum.Font.SourceSansBold
+titleLabel.TextXAlignment = Enum.TextXAlignment.Left
+titleLabel.Parent = topBar
+
+-- Minimize Button
+local minimizeBtn = Instance.new("TextButton")
+minimizeBtn.Size = UDim2.new(0, 28, 0, 28)
+minimizeBtn.Position = UDim2.new(1, -33, 0.5, -14)
+minimizeBtn.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+minimizeBtn.Text = "−"
+minimizeBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+minimizeBtn.TextScaled = true
+minimizeBtn.Font = Enum.Font.SourceSansBold
+minimizeBtn.Parent = topBar
+
+-- Smaller Circular Floating Button with Red "R"
+local floatBtn = Instance.new("TextButton")
+floatBtn.Name = "FloatingButton"
+floatBtn.Size = UDim2.new(0, 75, 0, 75)              -- Much smaller
+floatBtn.Position = UDim2.new(0.5, -37.5, 0.15, 0)
+floatBtn.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+floatBtn.BorderSizePixel = 3
+floatBtn.BorderColor3 = Color3.fromRGB(255, 0, 0)
+floatBtn.Text = "R"
+floatBtn.TextColor3 = Color3.fromRGB(255, 0, 0)
+floatBtn.TextScaled = true
+floatBtn.Font = Enum.Font.SourceSansBold
+floatBtn.Visible = false
+floatBtn.Active = true
+floatBtn.Draggable = true
+floatBtn.Parent = screenGui
+
+local uiCorner = Instance.new("UICorner")
+uiCorner.CornerRadius = UDim.new(0.5, 0)
+uiCorner.Parent = floatBtn
+
+-- Rest of UI (scaled down)
+local autoLabel = Instance.new("TextLabel")
+autoLabel.Size = UDim2.new(0, 130, 0, 18)
+autoLabel.Position = UDim2.new(0, 10, 0, 40)
+autoLabel.BackgroundTransparency = 1
+autoLabel.Text = "Auto Username Fill"
+autoLabel.TextColor3 = Color3.fromRGB(0, 255, 0)
+autoLabel.TextXAlignment = Enum.TextXAlignment.Left
+autoLabel.TextScaled = true
+autoLabel.Parent = mainFrame
+
+local scriptBox = Instance.new("TextBox")
+scriptBox.Size = UDim2.new(1, -20, 1, -105)
+scriptBox.Position = UDim2.new(0, 10, 0, 62)
+scriptBox.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+scriptBox.TextColor3 = Color3.fromRGB(0, 255, 0)
+scriptBox.Text = "-- Paste your script here\nprint(\"ranggi4561 destroys Roblox games loaded!\")"
+scriptBox.TextWrapped = true
+scriptBox.MultiLine = true
+scriptBox.Font = Enum.Font.Code
+scriptBox.TextSize = 13                     -- Smaller text
+scriptBox.Parent = mainFrame
+
+local bottomBar = Instance.new("Frame")
+bottomBar.Size = UDim2.new(1, 0, 0, 42)
+bottomBar.Position = UDim2.new(0, 0, 1, -42)
+bottomBar.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+bottomBar.Parent = mainFrame
+
+-- Bottom Buttons (smaller)
+local function createButton(name, pos, color, text)
+    local btn = Instance.new("TextButton")
+    btn.Size = UDim2.new(0.24, -8, 0.85, 0)
+    btn.Position = pos
+    btn.BackgroundColor3 = color
+    btn.Text = text
+    btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+    btn.TextScaled = true
+    btn.Font = Enum.Font.SourceSansBold
+    btn.Parent = bottomBar
+    return btn
+end
+
+local executeBtn = createButton("Execute", UDim2.new(0, 8, 0.08, 0), Color3.fromRGB(0, 100, 0), "Execute")
+local clearBtn   = createButton("Clear",   UDim2.new(0.25, 8, 0.08, 0), Color3.fromRGB(150, 0, 0), "Clear")
+local resetBtn   = createButton("Reset",   UDim2.new(0.5, 8, 0.08, 0), Color3.fromRGB(100, 100, 100), "Reset Character")
+local bodyBtn    = createButton("Body",    UDim2.new(0.75, 8, 0.08, 0), Color3.fromRGB(100, 100, 100), "Body Switch")
+
+local redHead = Instance.new("ImageLabel")
+redHead.Size = UDim2.new(0, 65, 0, 65)
+redHead.Position = UDim2.new(1, -60, 0, -25)
+redHead.BackgroundTransparency = 1
+redHead.Image = "rbxassetid://357249130"
+redHead.ImageColor3 = Color3.fromRGB(255, 0, 0)
+redHead.Parent = mainFrame
+
+-- Minimize Logic
+local minimized = false
+
+local function toggleMinimize()
+    minimized = not minimized
+    mainFrame.Visible = not minimized
+    floatBtn.Visible = minimized
+end
+
+minimizeBtn.MouseButton1Click:Connect(toggleMinimize)
+floatBtn.MouseButton1Click:Connect(toggleMinimize)
+
+-- Button Functions
+executeBtn.MouseButton1Click:Connect(function()
+    local code = scriptBox.Text
+    if code and #code > 0 then
+        local success, err = pcall(loadstring(code))
+        if not success then warn("[ranggi4561] " .. tostring(err)) end
+    end
+end)
+
+clearBtn.MouseButton1Click:Connect(function() scriptBox.Text = "" end)
+
+resetBtn.MouseButton1Click:Connect(function()
+    if player.Character then player.Character:BreakJoints() end
+end)
+
+bodyBtn.MouseButton1Click:Connect(function()
+    local hum = player.Character and player.Character:FindFirstChildOfClass("Humanoid")
+    if hum then
+        hum.RigType = hum.RigType == Enum.HumanoidRigType.R15 and Enum.HumanoidRigType.R6 or Enum.HumanoidRigType.R15
+    end
+end)
+
+print("ranggi4561 destroys Roblox games Executor Loaded! (Small Version)")
