@@ -1,3 +1,4 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
 diff --git a/My Executor b/My Executor
 index ad25a9dadf86e6669f71b875ca704142c5a2cc8d..dc5e42af84b83690c9b197d409d1c5477a8e378a 100644
 --- a/My Executor	
@@ -396,3 +397,6 @@ index ad25a9dadf86e6669f71b875ca704142c5a2cc8d..dc5e42af84b83690c9b197d409d1c547
  
 -print("ranggi4561 destroys Roblox games Executor Loaded! (Small Version)")
 +updateGui()
+ 
+EOF
+          )
